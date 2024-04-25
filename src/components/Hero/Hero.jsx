@@ -37,8 +37,8 @@ export default function Hero() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          pt: { xs: 14, sm: 5 },
-        //   pb: { xs: 8, sm: 12 },
+          pt: { xs: 14, sm: 20 },
+          pb: { xs: 8, sm: 10 },
         }}
       >
         <Stack spacing={2} useFlexGap sx={{ width: { xs: "100%", sm: "70%" } }}>

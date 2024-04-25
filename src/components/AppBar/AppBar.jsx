@@ -53,17 +53,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function AppAppBar() {
+function AppAppBar({ handlerRef, refs }) {
+  const { refHero, refTest, refProduct } = refs;
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
-        position="static"
         sx={{
           boxShadow: 0,
-            bgcolor: "#16161a",
+          bgcolor: "#16161a",
           backgroundImage: "none",
-          mt: 2,
-          borderRadius: "10px",
+          // mt: 2,
+          // borderRadius: "10px",
+          position: "fixed",
         }}
       >
         <Toolbar
@@ -73,7 +74,6 @@ function AppAppBar() {
             alignItems: "center",
             justifyContent: "space-between",
             flexShrink: 0,
-            
           }}
         >
           <IconButton
@@ -86,19 +86,21 @@ function AppAppBar() {
             <MenuIcon />
           </IconButton>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <Button sx={{ color: "#fff" }}>Home</Button>
+            <Button onClick={ () => handlerRef(refHero) } sx={{ color: "#fff" }}>
+              Home
+            </Button>
           </Box>
           {/* <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Button sx={{ color: "#fff" }}>About</Button>
           </Box> */}
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <Button sx={{ color: "#fff" }}>Testimonios</Button>
+            <Button onClick={ () => handlerRef(refTest) } sx={{ color: "#fff" }}>Testimonios</Button>
           </Box>
           {/* <Typography variant="h6" component="div" sx={{ paddingRight: 3 }}>
             Pricing
           </Typography> */}
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <Button sx={{ color: "#fff" }}>P. Estandar</Button>
+            <Button onClick={ () => handlerRef(refProduct) } sx={{ color: "#fff" }}>P. Estandar</Button>
           </Box>
           <Box sx={{ flexGrow: 2 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
