@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import {
@@ -29,6 +29,10 @@ const useListPage = () => {
 
     setStateDrawer({ ...stateDrawer, ["left"]: open });
   };
+  const navigate = useNavigate();
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
 
   const list = () => (
     <Box
@@ -40,7 +44,9 @@ const useListPage = () => {
       <List>
         {["Home", "Category", "Car Shop", "Delivery"].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton 
+            onClick={() => handleNavigation(`/${text}`)}
+            >
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
