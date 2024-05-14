@@ -19,6 +19,10 @@ const routes = createBrowserRouter([
         loader: loaderListCategorys,
         element: <ListCategoryPage />,
       },
+      {
+        path: "/Home",
+        element: <HomePage />,
+      },
     ],
   },
 ]);
