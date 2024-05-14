@@ -11,6 +11,9 @@ import { styled, alpha } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 
+
+import { useNavigate } from 'react-router-dom';
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -53,8 +56,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function AppAppBar({ handlerRef, refs }) {
+
+
+function AppBarPage({ handlerRef, refs }) {
   const { refHero, refTest, refProduct } = refs;
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -102,6 +114,10 @@ function AppAppBar({ handlerRef, refs }) {
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Button onClick={ () => handlerRef(refProduct) } sx={{ color: "#fff" }}>P. Estandar</Button>
           </Box>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            <Button onClick={ () => handleNavigation('/list-category') } sx={{ color: "#fff" }}>Categorias</Button>
+          </Box>
           <Box sx={{ flexGrow: 2 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Search>
@@ -120,4 +136,4 @@ function AppAppBar({ handlerRef, refs }) {
   );
 }
 
-export default AppAppBar;
+export default AppBarPage;

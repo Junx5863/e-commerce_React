@@ -8,8 +8,7 @@ import {
   Typography,
   alpha,
 } from "@mui/material";
-import Card from '@mui/joy/Card';
-import AspectRatio from '@mui/joy/AspectRatio';
+import portada from "../../assets/gamePortada.jpg";
 
 const dataImage = [
   {
@@ -52,7 +51,7 @@ export default function Hero() {
               fontSize: "clamp(3.5rem, 10vw, 4rem)",
             }}
           >
-            Nuestros Ultimos &nbsp;
+            Nuestros &nbsp;
             <Typography
               component="span"
               variant="h1"
@@ -84,8 +83,8 @@ export default function Hero() {
               aria-label="Enter your email address"
               placeholder="Your email address"
               inputProps={{
-                autocomplete: "off",
-                ariaLabel: "Enter your email address",
+                "aria-label": "Enter your email address",
+                autoComplete: "off",
               }}
             />
             <Button variant="contained" sx={{ background: "#7f5af0" }}>
@@ -106,7 +105,7 @@ export default function Hero() {
           }}
         >
           <img
-            src="public/gamePortada.jpg"
+            src={portada}
             alt=""
             style={{
             //   height: { xs: 200, sm: 400 },
