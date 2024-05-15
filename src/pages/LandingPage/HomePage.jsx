@@ -1,4 +1,3 @@
-
 // import AppBar from  "../../components/AppBar/AppBar";
 import AppBarPage from "../../Components/AppBar/AppBarComponent";
 import Hero from "../../Components/Hero/Hero";
@@ -10,10 +9,6 @@ const HomePage = () => {
   const refHero = useRef(); //-> null para un estado inicial
   const refTest = useRef();
   const refProduct = useRef();
-
- 
-
-  
 
   const handlerRef = (ref) => {
     if (ref.current) {
@@ -28,7 +23,7 @@ const HomePage = () => {
         refs={{ refHero, refTest, refProduct }}
       ></AppBarPage>
       <div ref={refHero}>
-      <Hero ></Hero>
+        <Hero></Hero>
       </div>
       <div ref={refTest}>
         <Testimonios></Testimonios>
@@ -37,7 +32,6 @@ const HomePage = () => {
         <ProductoStandar></ProductoStandar>
       </div>
     </div>
-    
   );
 };
 
