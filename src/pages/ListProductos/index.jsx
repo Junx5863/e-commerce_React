@@ -3,9 +3,9 @@ import { json } from "react-router-dom";
 import useListPage from "./useListPages";
 
 import { getCategorys } from "../../core/server/services_index";
-import RecipeReviewCard from "../../Components/CardGame/CardGame";
+import RecipeReviewCard from "../../components/CardGame/CardGame";
 
-import AppBarPageGames from "../../Components/AppBar/AppBarGamePage";
+import AppBarPageGames from "../../components/AppBar/AppBarGamePage";
 import { useRef } from "react";
 
 export const loader = async () => {

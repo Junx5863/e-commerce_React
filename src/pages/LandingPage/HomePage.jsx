@@ -1,8 +1,8 @@
 // import AppBar from  "../../components/AppBar/AppBar";
-import AppBarPage from "../../Components/AppBar/AppBarComponent";
-import Hero from "../../Components/Hero/Hero";
-import Testimonios from "../../Components/Testimonios/Testimonios";
-import ProductoStandar from "../../Components/Producto/ProductoStandar";
+import AppBarPage from "../../components/AppBar/AppBarComponent";
+import Hero from "../../components/Hero/Hero";
+import Testimonios from "../../components/Testimonios/Testimonios";
+import ProductoStandar from "../../components/Producto/ProductoStandar";
 import { useRef } from "react";
 
 const HomePage = () => {

@@ -1,5 +1,5 @@
 import { Router, RouterProvider, createBrowserRouter } from "react-router-dom";
-import ErrorPage from "../Components/ErrorPage";
+import ErrorPage from "../components/ErrorPage";
 import HomePage from "../pages/LandingPage/HomePage";
 import ListCategoryPage, {
   loader as loaderListCategorys,
