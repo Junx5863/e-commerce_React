@@ -10,8 +10,8 @@ import { useRef } from "react";
 
 export const loader = async () => {
   try {
-    const categorysList = await Promise.all([getCategorys()]);
-    console.log({ categorysList });
+    const categorysList = await getCategorys();
+
     return json({ categorysList });
   } catch (error) {
     throwErrorPage({
@@ -23,23 +23,22 @@ export const loader = async () => {
 const HomePage = () => {
   const xboxseries = useRef(); //-> null para un estado inicial
   const playStation = useRef();
-  
+
   const handlerRef = (ref) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const { dataCategorysList,  } = useListPage();
+  const { dataCategorysList } = useListPage();
   return (
     <>
-      <AppBarPageGames 
-      refs={{ xboxseries, playStation }}
-      handlerRef={handlerRef}
+      <AppBarPageGames
+        refs={{ xboxseries, playStation }}
+        handlerRef={handlerRef}
       />
 
       {/* Drawer */}
-      
 
       <Box
         sx={{
@@ -74,23 +73,25 @@ const HomePage = () => {
                 marginLeft: "30px",
               }}
             >
-              <Typography variant="h4">Xbox - Series x/s - one</Typography>
+              <Typography variant="h4">Xbox - Series X/S</Typography>
             </Box>
 
             <Grid item xs={12}>
               <Grid container justifyContent="center" spacing={2}>
-                {dataCategorysList.map((value) =>
-                  value["xbox"].map((valueItem) => (
-                    <Grid key={valueItem.id} item>
-                      <RecipeReviewCard
-                        name={valueItem.name}
-                        date={valueItem.date}
-                        image={valueItem.image}
-                        description={valueItem.description}
-                      />
-                    </Grid>
-                  ))
-                )}
+                {dataCategorysList.map((value) => {
+                  if (value.type == "xbox") {
+                    return (
+                      <Grid key={value.id} item>
+                        <RecipeReviewCard
+                          name={value.name}
+                          date={value.date}
+                          image={value.image}
+                          description={value.description}
+                        />
+                      </Grid>
+                    );
+                  }
+                })}
               </Grid>
             </Grid>
           </Grid>
@@ -119,17 +120,22 @@ const HomePage = () => {
             </Box>
             <Grid item xs={12}>
               <Grid container justifyContent="center" spacing={2}>
-                {dataCategorysList.map((value) =>
-                  value["playStation"].map((valueItem) => (
-                    <Grid key={valueItem.id} item>
-                      <RecipeReviewCard
-                        name={valueItem.name}
-                        date={valueItem.date}
-                        image={valueItem.image}
-                        description={valueItem.description}
-                      />
-                    </Grid>
-                  ))
+                {dataCategorysList.map(
+                  (value) =>
+                    {
+                      if (value.type == "playStation") {
+                        return (
+                          <Grid key={value.id} item>
+                            <RecipeReviewCard
+                              name={value.name}
+                              date={value.date}
+                              image={value.image}
+                              description={value.description}
+                            />
+                          </Grid>
+                        );
+                      }
+                    }
                 )}
               </Grid>
             </Grid>

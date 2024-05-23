@@ -15,6 +15,8 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 
 const useListPage = () => {
+  
+
   const [stateDrawer, setStateDrawer] = useState({
     left: false,
   });
@@ -44,9 +46,7 @@ const useListPage = () => {
       <List>
         {["Home", "Category", "Car Shop", "Delivery"].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton 
-            onClick={() => handleNavigation(`/${text}`)}
-            >
+            <ListItemButton onClick={() => handleNavigation(`/${text}`)}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
@@ -58,6 +58,7 @@ const useListPage = () => {
       <Divider />
     </Box>
   );
+
   const { categorysList: dataCategorys } = useLoaderData();
 
   //state

@@ -1,0 +1,199 @@
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "./database.js";
+
+const categorys = [
+  {
+    id: 1,
+    name: "Halo Infinite",
+    date: "2021-12-08",
+    type: "xbox",
+    image:
+      "https://i.pinimg.com/736x/82/72/30/827230cf28f6f7ab558b50eeb28b6a7a.jpg",
+    description:
+      "Halo Infinite is a first-person shooter game developed by 343 Industries and published by Xbox Game Studios. It is the sixth main entry of the Halo series and the fourteenth overall. The game follows the Master Chief, a supersoldier, as he battles the alien faction known as the Banished on a Halo ring.",
+  },
+  {
+    id: 2,
+    name: "Forza Horizon 5",
+    date: "2021-11-09",
+    type: "xbox",
+    image:
+      "https://i.pinimg.com/564x/70/c4/c9/70c4c93245f278089e8aa02002641b91.jpg",
+    description:
+      "Forza Horizon 5 is an open-world racing game developed by Playground Games and published by Xbox Game Studios. It is the fifth main entry of the Forza Horizon series. The game is set in a fictional representation of Mexico and features a dynamic weather system and a large variety of cars.",
+  },
+  {
+    id: 3,
+    name: "Fable",
+    date: "TBA",
+    type: "xbox",
+    image:
+      "https://i.pinimg.com/564x/37/49/6c/37496cf653d21a17aca65338999a3e07.jpg",
+    description:
+      "Fable, crafted by Playground Games and published by Xbox Game Studios, reimagines the cherished franchise. Set in the captivating realm of Albion, players embark on a thrilling action RPG journey. With a narrative molded by player choices, Fable offers an immersive storytelling experience.",
+  },
+  {
+    id: 4,
+    name: "Starfield",
+    date: "2022-11-11",
+    type: "xbox",
+    image:
+      "https://i.pinimg.com/564x/58/52/89/585289e2b862e0bbc925779784247fda.jpg",
+    description:
+      "Starfield is an upcoming role-playing game developed by Bethesda Game Studios and published by Bethesda Softworks. It is set in space and features a single-player, open-world experience. The game is the first new franchise from Bethesda in over 25 years.",
+  },
+  {
+    id: 5,
+    name: "Psychonauts 2",
+    date: "2021-08-25",
+    type: "xbox",
+    image:
+      "https://i.pinimg.com/564x/91/4b/77/914b77ab49b9fcd82bd53c2f5d6a6fe8.jpg",
+    description:
+      "Psychonauts 2 is a platforming game developed by Double Fine Productions and published by Xbox Game Studios. It is the sequel to the 2005 game Psychonauts and follows the story of Raz, a young psychic who must delve into the minds of others to uncover a sinister plot.",
+  },
+  {
+    id: 6,
+    name: "Back 4 Blood",
+    date: "2021-10-12",
+    type: "xbox",
+    image:
+      "https://i.pinimg.com/564x/25/ba/f6/25baf65f92260e516a7af5450b554120.jpg",
+    description:
+      "Back 4 Blood is a first-person shooter game developed by Turtle Rock Studios and published by Warner Bros. Interactive Entertainment. It is a spiritual successor to the Left 4 Dead series and features cooperative gameplay against hordes of zombies.",
+  },
+  {
+    id: 7,
+    name: "The Elder Scrolls VI",
+    date: "TBA",
+    type: "xbox",
+    image:
+      "https://i.pinimg.com/736x/84/81/65/848165193ac75a3d93a27d66b69966b6.jpg",
+    description:
+      "The Elder Scrolls VI is an upcoming role-playing game developed by Bethesda Game Studios and published by Bethesda Softworks. It is the sixth main entry of The Elder Scrolls series and is set in the fictional continent of Tamriel. The game promises a vast open world and a rich single-player experience.",
+  },
+  {
+    id: 8,
+    name: "S.T.A.L.K.E.R. 2",
+    date: "2022-04-28",
+    type: "xbox",
+    image:
+      "https://i.pinimg.com/564x/34/cd/fe/34cdfe8a4a37b5c2dc4bf3fe1d943c95.jpg",
+    description:
+      "S.T.A.L.K.E.R. 2 is a first-person shooter game developed by GSC Game World. It is the sequel to the 2007 game S.T.A.L.K.E.R.: Shadow of Chernobyl and is set in a post-apocalyptic world affected by the Chernobyl disaster. The game features an open world and non-linear gameplay.",
+  },
+  {
+    id: 9,
+    name: "Avowed",
+    date: "TBA",
+    type: "xbox",
+    image:
+      "https://i.pinimg.com/564x/61/50/30/615030553e21bd5583b3d03b2b9f7b78.jpg",
+    description:
+      "Avowed is an upcoming role-playing game developed by Obsidian Entertainment and published by Xbox Game Studios. It is set in the fantasy world of Eora, the same universe as the Pillars of Eternity series. The game features a first-person perspective and a focus on player choice and consequence.",
+  },
+  {
+    id: 1,
+    name: "God of War",
+    date: "April 20, 2018",
+    type: "playStation",
+    image:
+      "https://i.pinimg.com/564x/c2/f9/e3/c2f9e3562cde9f05f0fb56762c56193b.jpg",
+    description:
+      "In God of War, Kratos, the God of War, has a son named Atreus. Kratos acts as a mentor and protector to his son, and has to master the rage that has driven him for many years.",
+  },
+  {
+    id: 2,
+    name: "The Last of Us",
+    date: "June 14, 2013",
+    type: "playStation",
+    image:
+      "https://i.pinimg.com/564x/58/63/44/586344ca5e644a47f0e18174fb3f713c.jpg",
+    description:
+      "The Last of Us takes place in a post-apocalyptic world where players control Joel, a smuggler tasked with escorting a teenage girl, Ellie, across a post-apocalyptic United States.",
+  },
+  {
+    id: 3,
+    name: "Uncharted 4: A Thief's End",
+    date: "May 10, 2016",
+    type: "playStation",
+    image:
+      "https://i.pinimg.com/564x/bd/10/58/bd10581719068ed91bf86cff4b4b62b3.jpg",
+    description:
+      "Uncharted 4 follows Nathan Drake, a retired treasure hunter, who is forced back into the world of thieves. With the stakes much more personal, Drake embarks on a globe-trotting journey.",
+  },
+  {
+    id: 4,
+    name: "Red Dead Redemption 2",
+    date: "October 26, 2018",
+    type: "playStation",
+    image:
+      "https://i.pinimg.com/736x/39/9e/a0/399ea0626c947b3dce1dc940880a7e9d.jpg",
+    description:
+      "Red Dead Redemption 2 follows the story of Arthur Morgan, a member of the Van der Linde gang in 1899. The game has both single-player and online multiplayer components.",
+  },
+  {
+    id: 5,
+    name: "Marvel's Spider-Man",
+    date: "September 7, 2018",
+    type: "playStation",
+    image:
+      "https://i.pinimg.com/564x/94/31/99/943199bd9c75f73e234e418c34d31242.jpg",
+    description:
+      "Marvel's Spider-Man features Peter Parker as the friendly neighborhood superhero. Players swing through New York City, fighting crime and taking down iconic villains.",
+  },
+  {
+    id: 6,
+    name: "Horizon Zero Dawn",
+    date: "February 28, 2017",
+    type: "playStation",
+    image:
+      "https://i.pinimg.com/564x/b7/d5/85/b7d585a09521015edada9ac1129e888a.jpg",
+    description:
+      "Horizon Zero Dawn is set in a post-apocalyptic world where players control Aloy, a hunter and archer, as she sets out to uncover her past and discover the secrets of the world.",
+  },
+  {
+    id: 7,
+    name: "The Witcher 3: Wild Hunt",
+    date: "May 19, 2015",
+    type: "playStation",
+    image:
+      "https://i.pinimg.com/564x/14/76/ae/1476ae6d610a110abdf1b231ea91a6f0.jpg",
+    description:
+      "The Witcher 3 is an open-world action role-playing game where players control Geralt of Rivia, a monster hunter known as a Witcher. The game features a vast open world and branching quests.",
+  },
+  {
+    id: 8,
+    name: "Assassin's Creed Odyssey",
+    date: "October 5, 2018",
+    type: "playStation",
+    image:
+      "https://i.pinimg.com/564x/2d/ad/31/2dad3197844e9e42648b4795b86f7591.jpg",
+    description:
+      "Assassin's Creed Odyssey is set in Ancient Greece during the Peloponnesian War. Players can choose to play as either Alexios or Kassandra, mercenaries on a quest for their family.",
+  },
+  {
+    id: 9,
+    name: "Bloodborne",
+    date: "March 24, 2015",
+    type: "playStation",
+    image:
+      "https://i.pinimg.com/736x/02/59/ab/0259ab4aee88616aef000db3465302c3.jpg",
+    description:
+      "Bloodborne is an action role-playing game set in a dark, gothic world. Players explore the city of Yharnam, battling nightmarish creatures and uncovering the city's dark secrets.",
+  },
+];
+
+const createProducts = async () => {
+  try {
+    const docRef = collection(db, "categorys");
+    categorys.map(async (value) => {
+      await addDoc(docRef, value);
+    });
+  } catch (error) {
+    console.error("Error adding document: ", error);
+  }
+};
+
+
+createProducts();
