@@ -28,7 +28,9 @@ const routes = createBrowserRouter([
 ]);
 
 const Routes = () => {
-  return <RouterProvider fallbackElement={<HomePage />} router={routes} />;
+  return <RouterProvider fallbackElement={<div>
+    Cargando...
+  </div>} router={routes} />;
 };
 
 export default Routes;

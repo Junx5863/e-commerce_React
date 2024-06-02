@@ -5,31 +5,18 @@ import {
   Toolbar,
   IconButton,
   InputBase,
-  Drawer,
+  Drawer,  
   Typography,
 } from "@mui/material";
-import { styled, alpha } from "@mui/material/styles";
+import { styled,} from "@mui/material/styles";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 
-import { useRef } from "react";
+import PixIcon from '@mui/icons-material/Pix';
 import useListPage from "../../pages/ListProductos/useListPages";
+import { CartIcon } from "../CartIcon/CartIcon";
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "auto",
-  },
-}));
+
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -93,6 +80,18 @@ function AppBarPageGames({ handlerRef, refs }) {
           >
             <MenuIcon />
           </IconButton>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 6 }}
+          >
+            <PixIcon />
+            <Typography sx={{ ml: 2, fontSize: 25, fontFamily: "monospace" }}>
+              PixelPeak
+            </Typography>
+          </IconButton>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Button
               onClick={() => handlerRef(xboxseries)}
@@ -116,17 +115,7 @@ function AppBarPageGames({ handlerRef, refs }) {
             Pricing
           </Typography> */}
           <Box sx={{ flexGrow: 2 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
-          </Box>
+          <CartIcon/>
         </Toolbar>
       </AppBar>
       <Drawer

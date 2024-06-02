@@ -7,6 +7,7 @@ const categorys = [
     name: "Halo Infinite",
     date: "2021-12-08",
     type: "xbox",
+    precio: "54.89",
     image:
       "https://i.pinimg.com/736x/82/72/30/827230cf28f6f7ab558b50eeb28b6a7a.jpg",
     description:
@@ -17,6 +18,7 @@ const categorys = [
     name: "Forza Horizon 5",
     date: "2021-11-09",
     type: "xbox",
+    precio: "12.00",
     image:
       "https://i.pinimg.com/564x/70/c4/c9/70c4c93245f278089e8aa02002641b91.jpg",
     description:
@@ -27,6 +29,7 @@ const categorys = [
     name: "Fable",
     date: "TBA",
     type: "xbox",
+    precio: "34.00",
     image:
       "https://i.pinimg.com/564x/37/49/6c/37496cf653d21a17aca65338999a3e07.jpg",
     description:
@@ -37,6 +40,7 @@ const categorys = [
     name: "Starfield",
     date: "2022-11-11",
     type: "xbox",
+    precio: "45.00",
     image:
       "https://i.pinimg.com/564x/58/52/89/585289e2b862e0bbc925779784247fda.jpg",
     description:
@@ -47,6 +51,7 @@ const categorys = [
     name: "Psychonauts 2",
     date: "2021-08-25",
     type: "xbox",
+    precio: "23.00",
     image:
       "https://i.pinimg.com/564x/91/4b/77/914b77ab49b9fcd82bd53c2f5d6a6fe8.jpg",
     description:
@@ -57,6 +62,7 @@ const categorys = [
     name: "Back 4 Blood",
     date: "2021-10-12",
     type: "xbox",
+    precio: "23.00",
     image:
       "https://i.pinimg.com/564x/25/ba/f6/25baf65f92260e516a7af5450b554120.jpg",
     description:
@@ -67,6 +73,7 @@ const categorys = [
     name: "The Elder Scrolls VI",
     date: "TBA",
     type: "xbox",
+    precio: "45.00",
     image:
       "https://i.pinimg.com/736x/84/81/65/848165193ac75a3d93a27d66b69966b6.jpg",
     description:
@@ -77,6 +84,7 @@ const categorys = [
     name: "S.T.A.L.K.E.R. 2",
     date: "2022-04-28",
     type: "xbox",
+    precio: "13.00",
     image:
       "https://i.pinimg.com/564x/34/cd/fe/34cdfe8a4a37b5c2dc4bf3fe1d943c95.jpg",
     description:
@@ -87,6 +95,7 @@ const categorys = [
     name: "Avowed",
     date: "TBA",
     type: "xbox",
+    precio: "45.00",
     image:
       "https://i.pinimg.com/564x/61/50/30/615030553e21bd5583b3d03b2b9f7b78.jpg",
     description:
@@ -97,6 +106,7 @@ const categorys = [
     name: "God of War",
     date: "April 20, 2018",
     type: "playStation",
+    precio: "65.00",
     image:
       "https://i.pinimg.com/564x/c2/f9/e3/c2f9e3562cde9f05f0fb56762c56193b.jpg",
     description:
@@ -107,6 +117,7 @@ const categorys = [
     name: "The Last of Us",
     date: "June 14, 2013",
     type: "playStation",
+    precio: "65.00",
     image:
       "https://i.pinimg.com/564x/58/63/44/586344ca5e644a47f0e18174fb3f713c.jpg",
     description:
@@ -117,6 +128,7 @@ const categorys = [
     name: "Uncharted 4: A Thief's End",
     date: "May 10, 2016",
     type: "playStation",
+    precio: "65.00",
     image:
       "https://i.pinimg.com/564x/bd/10/58/bd10581719068ed91bf86cff4b4b62b3.jpg",
     description:
@@ -127,6 +139,7 @@ const categorys = [
     name: "Red Dead Redemption 2",
     date: "October 26, 2018",
     type: "playStation",
+    precio: "65.00",
     image:
       "https://i.pinimg.com/736x/39/9e/a0/399ea0626c947b3dce1dc940880a7e9d.jpg",
     description:
@@ -137,6 +150,7 @@ const categorys = [
     name: "Marvel's Spider-Man",
     date: "September 7, 2018",
     type: "playStation",
+    precio: "85.00",
     image:
       "https://i.pinimg.com/564x/94/31/99/943199bd9c75f73e234e418c34d31242.jpg",
     description:
@@ -147,6 +161,7 @@ const categorys = [
     name: "Horizon Zero Dawn",
     date: "February 28, 2017",
     type: "playStation",
+    precio: "75.00",
     image:
       "https://i.pinimg.com/564x/b7/d5/85/b7d585a09521015edada9ac1129e888a.jpg",
     description:
@@ -157,6 +172,7 @@ const categorys = [
     name: "The Witcher 3: Wild Hunt",
     date: "May 19, 2015",
     type: "playStation",
+    precio: "15.00",
     image:
       "https://i.pinimg.com/564x/14/76/ae/1476ae6d610a110abdf1b231ea91a6f0.jpg",
     description:
@@ -167,6 +183,7 @@ const categorys = [
     name: "Assassin's Creed Odyssey",
     date: "October 5, 2018",
     type: "playStation",
+    precio: "25.00",
     image:
       "https://i.pinimg.com/564x/2d/ad/31/2dad3197844e9e42648b4795b86f7591.jpg",
     description:
@@ -177,6 +194,7 @@ const categorys = [
     name: "Bloodborne",
     date: "March 24, 2015",
     type: "playStation",
+    precio: "25.00",
     image:
       "https://i.pinimg.com/736x/02/59/ab/0259ab4aee88616aef000db3465302c3.jpg",
     description:

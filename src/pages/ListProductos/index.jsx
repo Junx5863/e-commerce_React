@@ -1,4 +1,13 @@
-import { Box, Grid, Typography, Drawer } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Typography,
+  Dialog,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+
+import CloseIcon from "@mui/icons-material/Close";
+
 import { json } from "react-router-dom";
 import useListPage from "./useListPages";
 
@@ -30,7 +39,8 @@ const HomePage = () => {
     }
   };
 
-  const { dataCategorysList } = useListPage();
+  const { dataCategorysList, openDialog, handleClickOpen, handleClose } =
+    useListPage();
   return (
     <>
       <AppBarPageGames
@@ -55,11 +65,7 @@ const HomePage = () => {
         <Typography variant="h3">Categorias</Typography>
 
         <div ref={xboxseries}>
-          <Grid
-            sx={{ flexGrow: 1, marginTop: 5, marginTop: 10 }}
-            container
-            spacing={2}
-          >
+          <Grid sx={{ flexGrow: 1, marginTop: 10 }} container spacing={2}>
             <Box
               sx={{
                 backgroundColor: "#ffffff",
@@ -83,10 +89,13 @@ const HomePage = () => {
                     return (
                       <Grid key={value.id} item>
                         <RecipeReviewCard
+                          id={value.id}
                           name={value.name}
                           date={value.date}
                           image={value.image}
                           description={value.description}
+                          plat={value.precio}
+                          color={"success"}
                         />
                       </Grid>
                     );
@@ -98,11 +107,7 @@ const HomePage = () => {
         </div>
 
         <div ref={playStation}>
-          <Grid
-            sx={{ flexGrow: 1, marginTop: 5, marginTop: 10 }}
-            container
-            spacing={2}
-          >
+          <Grid sx={{ flexGrow: 1, marginTop: 10 }} container spacing={2}>
             <Box
               sx={{
                 backgroundColor: "#ffffff",
@@ -120,28 +125,28 @@ const HomePage = () => {
             </Box>
             <Grid item xs={12}>
               <Grid container justifyContent="center" spacing={2}>
-                {dataCategorysList.map(
-                  (value) =>
-                    {
-                      if (value.type == "playStation") {
-                        return (
-                          <Grid key={value.id} item>
-                            <RecipeReviewCard
-                              name={value.name}
-                              date={value.date}
-                              image={value.image}
-                              description={value.description}
-                            />
-                          </Grid>
-                        );
-                      }
-                    }
-                )}
+                {dataCategorysList.map((value) => {
+                  if (value.type == "playStation") {
+                    return (
+                      <Grid key={value.id} item>
+                        <RecipeReviewCard
+                          name={value.name}
+                          date={value.date}
+                          image={value.image}
+                          description={value.description}
+                          plat={value.precio}
+                          color={"primary"}
+                        />
+                      </Grid>
+                    );
+                  }
+                })}
               </Grid>
             </Grid>
           </Grid>
         </div>
       </Box>
+
     </>
   );
 };

@@ -15,6 +15,8 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 
 const useListPage = () => {
+
+  const [openDialog, setOpenDialog] = useState(false);
   
 
   const [stateDrawer, setStateDrawer] = useState({
@@ -34,6 +36,13 @@ const useListPage = () => {
   const navigate = useNavigate();
   const handleNavigation = (path) => {
     navigate(path);
+  };
+
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
+  const handleClose = () => {
+    setOpenDialog(false);
   };
 
   const list = () => (
@@ -69,6 +78,9 @@ const useListPage = () => {
     dataCategorysList,
     toggleDrawer,
     stateDrawer,
+    openDialog,
+    handleClickOpen,
+    handleClose,
   };
 };
 
