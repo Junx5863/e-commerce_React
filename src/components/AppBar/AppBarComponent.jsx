@@ -10,12 +10,12 @@ import {
   MenuItem,
 } from "@mui/material";
 
-import PixIcon from '@mui/icons-material/Pix';
+import PixIcon from "@mui/icons-material/Pix";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { CartIcon } from "../CartIcon/CartIcon";
+import CarIcon from "../CarIcon";
 
 function AppBarPage({ handlerRef, refs }) {
   const { refHero, refTest, refProduct } = refs;
@@ -45,6 +45,7 @@ function AppBarPage({ handlerRef, refs }) {
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+  
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -134,7 +135,10 @@ function AppBarPage({ handlerRef, refs }) {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting.name} onClick={()=> handleNavigation(setting.path)}>
+                <MenuItem
+                  key={setting.name}
+                  onClick={() => handleNavigation(setting.path)}
+                >
                   <Typography textAlign="center">{setting.name}</Typography>
                 </MenuItem>
               ))}
@@ -143,7 +147,9 @@ function AppBarPage({ handlerRef, refs }) {
           <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ flexGrow: 2 }} />
-          <CartIcon/>
+
+          {/* Cart Icon */}
+          <CarIcon/>
         </Toolbar>
       </AppBar>
     </Box>
@@ -151,4 +157,3 @@ function AppBarPage({ handlerRef, refs }) {
 }
 
 export default AppBarPage;
-

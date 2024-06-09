@@ -1,9 +1,4 @@
-import {
-  Box,
-  Grid,
-  Typography,
-  Dialog,
-} from "@mui/material";
+import { Box, Grid, Typography, Dialog } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 import CloseIcon from "@mui/icons-material/Close";
@@ -16,6 +11,7 @@ import RecipeReviewCard from "../../components/CardGame/CardGame";
 
 import AppBarPageGames from "../../components/AppBar/AppBarGamePage";
 import { useRef } from "react";
+import { ToastContainer } from "react-toastify";
 
 export const loader = async () => {
   try {
@@ -146,7 +142,6 @@ const HomePage = () => {
           </Grid>
         </div>
       </Box>
-
     </>
   );
 };

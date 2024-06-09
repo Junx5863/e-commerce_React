@@ -30,7 +30,6 @@ const useCardGame = () => {
   };
 
   const addCarItems = (mapItem, countItems) => {
-    // console.log({ mapItem }, { countItems });
     const item = { ...mapItem, quantity: countItems };
     addProduct(item);
   };

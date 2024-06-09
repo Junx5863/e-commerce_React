@@ -4,6 +4,7 @@ import HomePage from "../pages/LandingPage/HomePage";
 import ListCategoryPage, {
   loader as loaderListCategorys,
 } from "../pages/ListProductos";
+import CarPage from "../pages/CarPages";
 
 const routes = createBrowserRouter([
   {
@@ -23,6 +24,12 @@ const routes = createBrowserRouter([
         path: "/Home",
         element: <HomePage />,
       },
+      {
+        path: "/car-page",
+        loader: loaderListCategorys,
+        element: <CarPage />,
+      
+      }
     ],
   },
 ]);

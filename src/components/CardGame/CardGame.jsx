@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 import {
   Card,
@@ -24,6 +23,7 @@ import { styled } from "@mui/material/styles";
 
 import PaidIcon from "@mui/icons-material/Paid";
 import RadioGroupRating from "./Components/Rating";
+import DeleteIcon from '@mui/icons-material/Delete';
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -50,6 +50,7 @@ const RecipeReviewCard = ({
   description,
   plat,
   color,
+  typeButton = true,
 }) => {
   const {
     expanded,
@@ -64,6 +65,8 @@ const RecipeReviewCard = ({
     removeItem,
     addCarItems,
   } = useCardGame();
+
+  
 
   return (
     <div>
@@ -89,7 +92,7 @@ const RecipeReviewCard = ({
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          {setIconChange ? (
+          {typeButton ? (setIconChange ? (
             <IconButton
               aria-label="add to favorites"
               onClick={handledChangeIcon}
@@ -128,7 +131,9 @@ const RecipeReviewCard = ({
                 </Button>
               ) : null}
             </div>
-          )}
+          )):(<Button color="error" variant="outlined" startIcon={<DeleteIcon />}>
+            Remover
+          </Button>)}
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}

@@ -4,51 +4,27 @@ import {
   Button,
   Toolbar,
   IconButton,
-  InputBase,
   Drawer,  
   Typography,
 } from "@mui/material";
-import { styled,} from "@mui/material/styles";
+
 
 import MenuIcon from "@mui/icons-material/Menu";
 
 import PixIcon from '@mui/icons-material/Pix';
 import useListPage from "../../pages/ListProductos/useListPages";
-import { CartIcon } from "../CartIcon/CartIcon";
+import CarIcon from "../CarIcon";
 
 
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  width: "100%",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
-    },
-  },
-}));
 
 function AppBarPageGames({ handlerRef, refs }) {
   const { list, toggleDrawer, stateDrawer } = useListPage();
+ 
 
   const { xboxseries, playStation } = refs;
+
+
   return (
     <>
       <AppBar
@@ -115,7 +91,8 @@ function AppBarPageGames({ handlerRef, refs }) {
             Pricing
           </Typography> */}
           <Box sx={{ flexGrow: 2 }} />
-          <CartIcon/>
+          {/* Cart Icon */}
+          <CarIcon/>
         </Toolbar>
       </AppBar>
       <Drawer
